@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>keychain-access-groups</key>
+	<array>
+		<string>com.appsec-labs.inalyzer5</string>
+	</array>
+	<key>task_for_pid-allow</key>
+	<true/>
+	<key>run-unsigned-code</key>
+	<true/>
+	<key>application-identifier</key>
+	<string>com.appsec-labs.inalyzer5</string>
+	<key>com.apple.springboard.launchapplications</key>
+	<true/>
+	<key>com.apple.springboard.opensensitiveurl</key>
+	<true/>
+	<key>com.apple.springboard.debugapplications</key>
+	<true/>
+</dict>
+</plist>
