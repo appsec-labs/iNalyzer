@@ -20,7 +20,7 @@ Installation - Laptop/PC
   * iNalyzer5 requiers GrapViz to work, install [GraphViz-Dot (http://www.graphviz.org/download..php)]
   * iNalyzer5 requiers DoxyGen engin to work, install [DoxyGen (http://www.stack.nl/~dimitri/doxygen/download.html#srcbin)]
 
-How to use: 
+How to use:
 -------
 When iNalyzer5 is running, open your browser to your iDevice ip:5544 eg http://iDeviceIP:5544
  
