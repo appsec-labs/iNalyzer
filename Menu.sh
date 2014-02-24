@@ -8,7 +8,7 @@ name=$( echo ${f} | tr '~' ' ' )
 htmlList=$( echo ${htmlList}"<option>${name}</option>" )
 done
 
-pslst=$( ps -ef | grep -v grep | grep '/' | cut -d: -f3-  | awk 'BEGIN {FS="/"} ;{ print $NF;}' | sort -u | grep -v '{ print' | grep -v 'mi.py'  | cut -d" " -f1 )
+pslst=$( ps -ef | grep -v grep | grep -v 'iNalyzer' | grep '/' | grep .app |cut -d: -f3-  | awk 'BEGIN {FS="/"} ;{ print $NF;}' | sort -u | grep -v '{ print' | grep -v 'mi.py'  | cut -d" " -f1 )
 for p in ${pslst}
 do
 psList=$( echo ${psList}"<option>${p}</option>" )
