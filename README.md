@@ -41,4 +41,4 @@ Licensed under [GPLv3](http://www.gnu.org/copyleft/gpl.html).
 
 Contact
 ------
-iNalyzer <at> appsec-labs.com
+iNalyzer @ appsec-labs.com
