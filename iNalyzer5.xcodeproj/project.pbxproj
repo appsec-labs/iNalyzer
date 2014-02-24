@@ -23,7 +23,15 @@
 		AD838DFD159041DE0044E042 /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = AD838DF5159041DE0044E042 /* unzip.c */; };
 		AD838DFE159041DE0044E042 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = AD838DF7159041DE0044E042 /* zip.c */; };
 		AD838DFF159041DE0044E042 /* ZipArchive.mm in Sources */ = {isa = PBXBuildFile; fileRef = AD838DFA159041DE0044E042 /* ZipArchive.mm */; };
+		C312656D1897A76D00D6B64F /* THANKS in Resources */ = {isa = PBXBuildFile; fileRef = C312656C1897A76D00D6B64F /* THANKS */; };
+		C312656F1897AA9100D6B64F /* doxMe.bat in Resources */ = {isa = PBXBuildFile; fileRef = C312656E1897AA9100D6B64F /* doxMe.bat */; };
+		C325A71218A4D3A100CF8924 /* dumpSQLFiles.sh in Resources */ = {isa = PBXBuildFile; fileRef = C325A71118A4D3A100CF8924 /* dumpSQLFiles.sh */; };
 		C38C782916676CBB0013B69F /* iNalyzer5.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = AD2ABA541580A71D00146E30 /* iNalyzer5.entitlements */; };
+		C392807F18B94E9F004976B5 /* keychain_dumper in Resources */ = {isa = PBXBuildFile; fileRef = C392807E18B94E9F004976B5 /* keychain_dumper */; };
+		C392808118B9BC6E004976B5 /* dumpPlistFiles.sh in Resources */ = {isa = PBXBuildFile; fileRef = C392808018B9BC6E004976B5 /* dumpPlistFiles.sh */; };
+		C39399A218B24A6E00B414A0 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = C39399A118B24A6E00B414A0 /* MainWindow.xib */; };
+		C39399A618B266F500B414A0 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = C39399A518B266F500B414A0 /* Default.png */; };
+		C395027F1726E64100CE07A2 /* r30c5.sh in Resources */ = {isa = PBXBuildFile; fileRef = C395027E1726E64100CE07A2 /* r30c5.sh */; };
 		C3AAEB3D1710C5D3007155C5 /* helper_init.cy in Resources */ = {isa = PBXBuildFile; fileRef = C3AAEB221710C5D3007155C5 /* helper_init.cy */; };
 		C3AAEB3E1710C5D3007155C5 /* proc.run in Resources */ = {isa = PBXBuildFile; fileRef = C3AAEB231710C5D3007155C5 /* proc.run */; };
 		C3AAEB3F1710C5D3007155C5 /* proc.kill in Resources */ = {isa = PBXBuildFile; fileRef = C3AAEB241710C5D3007155C5 /* proc.kill */; };
@@ -31,8 +39,6 @@
 		C3AAEB411710C5D3007155C5 /* doxMe.sh in Resources */ = {isa = PBXBuildFile; fileRef = C3AAEB261710C5D3007155C5 /* doxMe.sh */; };
 		C3AAEB421710C5D3007155C5 /* footer.html in Resources */ = {isa = PBXBuildFile; fileRef = C3AAEB271710C5D3007155C5 /* footer.html */; };
 		C3AAEB431710C5D3007155C5 /* logUI.cy in Resources */ = {isa = PBXBuildFile; fileRef = C3AAEB281710C5D3007155C5 /* logUI.cy */; };
-		C3AAEB441710C5D3007155C5 /* logUI. in Resources */ = {isa = PBXBuildFile; fileRef = C3AAEB291710C5D3007155C5 /* logUI. */; };
-		C3AAEB451710C5D3007155C5 /* libsubjc.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C3AAEB2A1710C5D3007155C5 /* libsubjc.dylib */; };
 		C3AAEB461710C5D3007155C5 /* msgR.txt in Resources */ = {isa = PBXBuildFile; fileRef = C3AAEB2B1710C5D3007155C5 /* msgR.txt */; };
 		C3AAEB471710C5D3007155C5 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3AAEB2C1710C5D3007155C5 /* Info.plist */; };
 		C3AAEB481710C5D3007155C5 /* iNalyzer-Deamon.sh in Resources */ = {isa = PBXBuildFile; fileRef = C3AAEB2D1710C5D3007155C5 /* iNalyzer-Deamon.sh */; };
@@ -50,6 +56,9 @@
 		C3AAEB551710C5D3007155C5 /* logo.gif in Resources */ = {isa = PBXBuildFile; fileRef = C3AAEB3A1710C5D3007155C5 /* logo.gif */; };
 		C3AAEB561710C5D3007155C5 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C3AAEB3B1710C5D3007155C5 /* icon.png */; };
 		C3AAEB571710C5D3007155C5 /* dox.template in Resources */ = {isa = PBXBuildFile; fileRef = C3AAEB3C1710C5D3007155C5 /* dox.template */; };
+		C3E61BCA18BA271200192161 /* BinaryCookieReader.py in Resources */ = {isa = PBXBuildFile; fileRef = C3E61BC918BA271200192161 /* BinaryCookieReader.py */; };
+		C3E61BCC18BA76DB00192161 /* dumpKeychain.sh in Resources */ = {isa = PBXBuildFile; fileRef = C3E61BCB18BA76DB00192161 /* dumpKeychain.sh */; };
+		C3E61BCE18BB3C8300192161 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C3E61BCD18BB3C8300192161 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,7 +69,7 @@
 		41261392141B5C8D006DBF89 /* scinfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scinfo.h; sourceTree = "<group>"; };
 		41261395141B5CFA006DBF89 /* scinfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = scinfo.m; sourceTree = "<group>"; };
 		4155391A1238256D008EE206 /* crack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crack.h; sourceTree = "<group>"; };
-		4155391B1238256D008EE206 /* crack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = crack.m; sourceTree = "<group>"; };
+		4155391B1238256D008EE206 /* crack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = crack.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		4155393B12387017008EE206 /* sha1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sha1.h; sourceTree = "<group>"; };
 		4155393C12387017008EE206 /* sha1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sha1.c; sourceTree = "<group>"; };
 		4155396812387DF8008EE206 /* dump.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dump.h; sourceTree = "<group>"; };
@@ -88,6 +97,14 @@
 		AD838DF8159041DE0044E042 /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
 		AD838DF9159041DE0044E042 /* ZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipArchive.h; sourceTree = "<group>"; };
 		AD838DFA159041DE0044E042 /* ZipArchive.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ZipArchive.mm; sourceTree = "<group>"; };
+		C312656C1897A76D00D6B64F /* THANKS */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = THANKS; sourceTree = "<group>"; };
+		C312656E1897AA9100D6B64F /* doxMe.bat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = doxMe.bat; sourceTree = "<group>"; };
+		C325A71118A4D3A100CF8924 /* dumpSQLFiles.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = dumpSQLFiles.sh; sourceTree = "<group>"; };
+		C392807E18B94E9F004976B5 /* keychain_dumper */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = keychain_dumper; sourceTree = "<group>"; };
+		C392808018B9BC6E004976B5 /* dumpPlistFiles.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = dumpPlistFiles.sh; sourceTree = "<group>"; };
+		C39399A118B24A6E00B414A0 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		C39399A518B266F500B414A0 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		C395027E1726E64100CE07A2 /* r30c5.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = r30c5.sh; sourceTree = "<group>"; };
 		C3AAEB221710C5D3007155C5 /* helper_init.cy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = helper_init.cy; sourceTree = "<group>"; };
 		C3AAEB231710C5D3007155C5 /* proc.run */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = proc.run; sourceTree = "<group>"; };
 		C3AAEB241710C5D3007155C5 /* proc.kill */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = proc.kill; sourceTree = "<group>"; };
@@ -95,7 +112,6 @@
 		C3AAEB261710C5D3007155C5 /* doxMe.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = doxMe.sh; sourceTree = "<group>"; };
 		C3AAEB271710C5D3007155C5 /* footer.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = footer.html; sourceTree = "<group>"; };
 		C3AAEB281710C5D3007155C5 /* logUI.cy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = logUI.cy; sourceTree = "<group>"; };
-		C3AAEB291710C5D3007155C5 /* logUI. */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = logUI.; sourceTree = "<group>"; };
 		C3AAEB2A1710C5D3007155C5 /* libsubjc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libsubjc.dylib; sourceTree = "<group>"; };
 		C3AAEB2B1710C5D3007155C5 /* msgR.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = msgR.txt; sourceTree = "<group>"; };
 		C3AAEB2C1710C5D3007155C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Info.plist; sourceTree = "<group>"; };
@@ -114,6 +130,9 @@
 		C3AAEB3A1710C5D3007155C5 /* logo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = logo.gif; sourceTree = "<group>"; };
 		C3AAEB3B1710C5D3007155C5 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		C3AAEB3C1710C5D3007155C5 /* dox.template */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dox.template; sourceTree = "<group>"; };
+		C3E61BC918BA271200192161 /* BinaryCookieReader.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = BinaryCookieReader.py; sourceTree = "<group>"; };
+		C3E61BCB18BA76DB00192161 /* dumpKeychain.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = dumpKeychain.sh; sourceTree = "<group>"; };
+		C3E61BCD18BB3C8300192161 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,7 +142,6 @@
 			files = (
 				AD838DEB159041000044E042 /* libz.dylib in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
-				C3AAEB451710C5D3007155C5 /* libsubjc.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,6 +207,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C3E61BC918BA271200192161 /* BinaryCookieReader.py */,
+				C392807E18B94E9F004976B5 /* keychain_dumper */,
 				C3AAEB221710C5D3007155C5 /* helper_init.cy */,
 				C3AAEB231710C5D3007155C5 /* proc.run */,
 				C3AAEB241710C5D3007155C5 /* proc.kill */,
@@ -196,7 +216,7 @@
 				C3AAEB261710C5D3007155C5 /* doxMe.sh */,
 				C3AAEB271710C5D3007155C5 /* footer.html */,
 				C3AAEB281710C5D3007155C5 /* logUI.cy */,
-				C3AAEB291710C5D3007155C5 /* logUI. */,
+				C3E61BCD18BB3C8300192161 /* README.md */,
 				C3AAEB2A1710C5D3007155C5 /* libsubjc.dylib */,
 				C3AAEB2B1710C5D3007155C5 /* msgR.txt */,
 				C3AAEB2C1710C5D3007155C5 /* Info.plist */,
@@ -204,18 +224,26 @@
 				C3AAEB2E1710C5D3007155C5 /* iNalyzer */,
 				C3AAEB2F1710C5D3007155C5 /* msgD.txt */,
 				C3AAEB301710C5D3007155C5 /* com.appsec-labs.inalyzer5.Startup.plist */,
+				C395027E1726E64100CE07A2 /* r30c5.sh */,
+				C392808018B9BC6E004976B5 /* dumpPlistFiles.sh */,
+				C3E61BCB18BA76DB00192161 /* dumpKeychain.sh */,
+				C325A71118A4D3A100CF8924 /* dumpSQLFiles.sh */,
 				C3AAEB311710C5D3007155C5 /* com.appsec-labs.inalyzer5.Shutdown.plist */,
 				C3AAEB321710C5D3007155C5 /* utills.cy */,
 				C3AAEB331710C5D3007155C5 /* Menu.sh */,
 				C3AAEB341710C5D3007155C5 /* libsubjc.cy */,
 				C3AAEB351710C5D3007155C5 /* packApp.sh */,
 				C3AAEB361710C5D3007155C5 /* listApp.sh */,
+				C39399A518B266F500B414A0 /* Default.png */,
 				C3AAEB381710C5D3007155C5 /* PkgInfo */,
 				C3AAEB391710C5D3007155C5 /* logo.png */,
 				C3AAEB3A1710C5D3007155C5 /* logo.gif */,
 				C3AAEB3B1710C5D3007155C5 /* icon.png */,
 				C3AAEB3C1710C5D3007155C5 /* dox.template */,
 				8D1107310486CEB800E47090 /* iNalyzer5-Info.plist */,
+				C312656C1897A76D00D6B64F /* THANKS */,
+				C312656E1897AA9100D6B64F /* doxMe.bat */,
+				C39399A118B24A6E00B414A0 /* MainWindow.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -302,15 +330,22 @@
 				C3AAEB3D1710C5D3007155C5 /* helper_init.cy in Resources */,
 				C3AAEB3E1710C5D3007155C5 /* proc.run in Resources */,
 				C3AAEB3F1710C5D3007155C5 /* proc.kill in Resources */,
+				C39399A618B266F500B414A0 /* Default.png in Resources */,
+				C312656F1897AA9100D6B64F /* doxMe.bat in Resources */,
+				C3E61BCE18BB3C8300192161 /* README.md in Resources */,
 				C3AAEB401710C5D3007155C5 /* mi.py in Resources */,
+				C392807F18B94E9F004976B5 /* keychain_dumper in Resources */,
 				C3AAEB411710C5D3007155C5 /* doxMe.sh in Resources */,
 				C3AAEB421710C5D3007155C5 /* footer.html in Resources */,
+				C325A71218A4D3A100CF8924 /* dumpSQLFiles.sh in Resources */,
+				C39399A218B24A6E00B414A0 /* MainWindow.xib in Resources */,
+				C3E61BCA18BA271200192161 /* BinaryCookieReader.py in Resources */,
 				C3AAEB431710C5D3007155C5 /* logUI.cy in Resources */,
-				C3AAEB441710C5D3007155C5 /* logUI. in Resources */,
 				C3AAEB461710C5D3007155C5 /* msgR.txt in Resources */,
 				C3AAEB471710C5D3007155C5 /* Info.plist in Resources */,
 				C3AAEB481710C5D3007155C5 /* iNalyzer-Deamon.sh in Resources */,
 				C3AAEB491710C5D3007155C5 /* iNalyzer in Resources */,
+				C392808118B9BC6E004976B5 /* dumpPlistFiles.sh in Resources */,
 				C3AAEB4A1710C5D3007155C5 /* msgD.txt in Resources */,
 				C3AAEB4B1710C5D3007155C5 /* com.appsec-labs.inalyzer5.Startup.plist in Resources */,
 				C3AAEB4C1710C5D3007155C5 /* com.appsec-labs.inalyzer5.Shutdown.plist in Resources */,
@@ -324,6 +359,9 @@
 				C3AAEB551710C5D3007155C5 /* logo.gif in Resources */,
 				C3AAEB561710C5D3007155C5 /* icon.png in Resources */,
 				C3AAEB571710C5D3007155C5 /* dox.template in Resources */,
+				C395027F1726E64100CE07A2 /* r30c5.sh in Resources */,
+				C312656D1897A76D00D6B64F /* THANKS in Resources */,
+				C3E61BCC18BA76DB00192161 /* dumpKeychain.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,7 +439,7 @@
 				GCC_PREFIX_HEADER = iNalyzer5_Prefix.pch;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "iNalyzer5-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -426,7 +464,7 @@
 				GCC_PREFIX_HEADER = iNalyzer5_Prefix.pch;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "iNalyzer5-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -453,7 +491,7 @@
 				PRODUCT_NAME = /Users/_coredump/iNalyzer5;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos5.0;
 			};
 			name = Debug;
 		};
@@ -473,7 +511,7 @@
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = /Users/_coredump/iNalyzer5;
 				PROVISIONING_PROFILE = "";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos5.0;
 			};
 			name = Release;
 		};

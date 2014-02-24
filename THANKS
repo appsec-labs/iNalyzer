@@ -1,0 +1,43 @@
+I wish to thank the following individuals and organizations in helping and improving iNalyzer,
+-Chilik Tamir (@_coreDump)
+
+# Standing on the shoulders of giants
+
+Jay Freeman (saurik) - for cycript (http://www.cycript.org)
+Joshua Wright - for providing the doxMe.bat file
+KennyTM - for his SubjC logger and class-dump-z tools (http://code.google.com/p/networkpx/)
+Patrick Toomey - for his keychain dumper https://github.com/ptoomey3/Keychain-Dumper
+Satishb3 (http://www.securitylearn.net) - for his binary cookies python script
+
+# Early beta testers
+Ratiscrac and Clutch developers
+Alex Shucman - for early beta testing of iNalyzer
+Alon Cappelutto - for early beat testing of iNalyzer
+
+
+# Organizations
+
+AppSec-Labs, <info@appsec-labs.com>
+* for the opportunity to perform my research and to build up a tool for everyone else to benefit of it.
+    * Homepage: https://www.appsec-labs.com/iNalyzer
+
+OWASP Israel 2012,
+* for the opportunity to present my research titled 'Advanced Pen-Testing of iPhone Applications' at OWASP Israel Conference 2012 on September 5, 2012 in Israel. I unveiled and demonstrated some of the iNalyzer 0.1 release candidate version new features during my presentation
+    * Homepage: https://www.owasp.org/index.php/OWASP_Israel_2012
+    * Slides: https://appsec-labs.com/system/files/Attacking%20iPhone%20Applications.pdf
+
+HITB Amsterdam Security Conference team 2013,
+* for the opportunity to present my research titled 'iNalyzer: An End to Blackbox iOS Analysis' at HITB Security Conference 2013 on April 11, 2013 in Amsetrdam. I unveiled and demonstrated some of the iNalyzer 5 release candidate version new features during my presentation
+    * Homepage: http://conference.hitb.org/
+    * Slides: http://conference.hitb.org/hitbsecconf2013ams/materials/D2T2%20-%20Chilik%20Tamir%20-%20iAnalyzer%20-%20No%20More%20Blackbox%20iOS%20Analysis.pdf
+    
+Black Hat USA training 2013,
+* for the opportunity to accept my training titled 'iOS Application Hacking – PenTesting Mobile Apps' at BlackHat USA Conference 2013 on July 29-30, 2013 in USA. I unveiled and demonstrated the iNalyzer5 for iOS 6 release version with new features during my tarining
+    * Homepage: https://www.blackhat.com/
+    * Course Agenda: https://www.blackhat.com/us-13/training/ios-application-hacking%E2%80%93pentesting-mobile-apps.html
+
+OWASP Israel 2013,
+* for the opportunity to present my research titled 'A Game of Pwns:
+Pwning iPhone application security assessment using the iNalyzer framework' at OWASP Israel Conference 2013 on September 5, 2013 in Israel. I unveiled and demonstrated some of the iNalyzer5 for iOS 6 release candidate 5 version bundled with new features during my presentation
+    * Homepage: https://www.owasp.org/index.php/OWASP_Israel_2013
+    * Slides: https://www.owasp.org/images/e/e2/OWASP_IL_2013_10_Chilik_Tamir_GameOfPwns-Pwning_iOS_pentesting_with_iNalyzer.pdf

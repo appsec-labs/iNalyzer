@@ -1,5 +1,8 @@
 function ls(a){ var x={}; for(i in *a){ try{ x[i] = (*a)[i]; } catch(e){} } return x; }
 
+NSLog_ = dlsym(RTLD_DEFAULT, "NSLog")
+NSLog = function() { var types = 'v', args = [], count = arguments.length; for (var i = 0; i != count; ++i) { types += '@'; args.push(arguments[i]); } new Functor(NSLog_, types).apply(null, args); }
+
 function ftxt(a){
 return [UIApp.keyWindow recursiveDescription].toString().split(a)[0].split("|").pop().split(";")[0].split(": ")[1]; }
 

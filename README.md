@@ -10,7 +10,7 @@ Installation - Device
 ------
 To install iNalyzer5, you can
   
-  * Add appsec-labs [repository](http://appsec-labs.com/cydia) to Cydia, then search and install "iNalyzer5",
+  * Add appsec-labs repository (http://appsec-labs.com/cydia) to Cydia, then search and install "iNalyzer5",
   * Or manually download at the [Release Tab](https://github.com/appsec-labs/iNalyzer/releases) and install by iFile or dpkg.
   * After installation, reboot your iDevice and press on the iNalyzer5 icon to toggle it on (you should see the tag changes to :5544)
 
@@ -38,3 +38,7 @@ If you find any issue after installing this tool, just uninstall it in Cydia.
 License
 ------
 Licensed under [GPLv3](http://www.gnu.org/copyleft/gpl.html).
+
+Contact
+------
+iNalyzer <at> appsec-labs.com

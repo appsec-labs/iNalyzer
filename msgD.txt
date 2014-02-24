@@ -1,1 +1,2 @@
-switchTag("")
+[[SBUserAgent sharedUserAgent] setBadgeNumberOrString:"" forApplicationWithID:@"com.appsec-labs.iNalyzer5"];
+[[SBUserAgent sharedUserAgent] setBadgeNumberOrString:"" forApplicationWithID:@"com.appsec-labs.inalyzer5"];

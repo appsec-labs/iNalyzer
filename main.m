@@ -1,6 +1,25 @@
 /*
- Introducing iNalyzer5, the fastest and most advanced cracking utility for the iPhone, iPod Touch, and iPad.
- 
+ * iNalyzer5
+ * https://github.com/appsec-labs/iNalyzer
+ *
+ * Security assesment framework for iOS application
+ * by Chilik Tamir @_coreDump
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+/*
+Clutch original header
  Created by dissident at Hackulo.us (<http://hackulo.us/>)
   Credit: Nighthawk, puy0, rwxr-xr-x, Flox, Flawless, FloydianSlip, Crash-X, MadHouse, Rastignac, aulter, icefire
 */
@@ -80,7 +99,7 @@ int main(int argc, char *argv[]) {
 			if (ipapath == nil) {
 				printf("Failed.\n");
 			} else {
-				printf("\t%s\n", [ipapath UTF8String]);
+				printf("iNalyzer done, file saved at:%s\n", [ipapath UTF8String]);
 			}
 		}
 	} else if (strncmp(argv[1], "-u", 2) == 0) {
@@ -101,7 +120,7 @@ int main(int argc, char *argv[]) {
             if (ipapath == nil) {
                 printf("Failed.\n");
             } else {
-                printf("\t%s\n", [ipapath UTF8String]);
+                printf("iNalyzer done, file saved at:%s\n", [ipapath UTF8String]);
             }
         }
     } else if (strncmp(argv[1], "-f", 2) == 0) {
@@ -112,6 +131,29 @@ int main(int argc, char *argv[]) {
 	} 
     else if (strncmp(argv[1], "-update", 7) == 0) {
         
+    } else if (strncmp(argv[1], "--direct", 7) == 0) {
+        bash=2;
+        NSString *dir = [NSString stringWithCString:argv[1+1] encoding:NSASCIIStringEncoding];
+        //dir = [ dir stringByDeletingLastPathComponent ];
+        
+        // ^^^ fix 5.5.2b : of last path /" not running in direct mode 
+        //dir = [ dir stringByDeletingLastPathComponent ];
+        
+        NSString *name = [[dir 
+                           stringByReplacingOccurrencesOfString:
+                           [dir stringByDeletingLastPathComponent ]
+                           withString:@""] stringByReplacingOccurrencesOfString:@"/"  withString:@"" ];
+        //name=[name stringByReplacingOccurrencesOfString:@" " withString:@"\ " ];
+        printf("iNalyzer is iNalyzing %s...\n", [ name UTF8String]);
+        // NSString *dir = [NSString stringWithCString:argv[2] encoding:NSASCIIStringEncoding];
+        // NSString *name = [NSString stringWithCString:argv[3] encoding:NSASCIIStringEncoding];
+        NSString *ver = @"1";
+        NSString *ipapath = crack_application(dir,name,ver);
+        if (ipapath == nil) {
+            printf("Failed.\n");
+        } else {
+            printf("iNalyzer done, file saved at:%s\n", [ipapath UTF8String]);
+        }
     } else if (strncmp(argv[1], "-h", 2) == 0) {
         goto help;
     } else {
@@ -153,7 +195,7 @@ int main(int argc, char *argv[]) {
 					if (ipapath == nil) {
 						printf("Failed.\n");
 					} else {
-						printf("\t%s\n", [ipapath UTF8String]);
+						printf("iNalyzer done, file saved at:%s\n", [ipapath UTF8String]);
 					}
 					break;
 				} else {
@@ -189,10 +231,15 @@ int main(int argc, char *argv[]) {
                 else if (!strcmp(argv[i], "--best-compression")) {
                     compression_level = 9;
                     printf("maximum compression set, might be slow!");
-                }
-                else if (strncmp(argv[i], "--direct", 7) == 0) {
+                }//bb//
+                else if ((false)&&(strncmp(argv[i], "--direct", 7) == 0)) {
                     bash=2;
                     NSString *dir = [NSString stringWithCString:argv[i+1] encoding:NSASCIIStringEncoding];
+                    //dir = [ dir stringByDeletingLastPathComponent ];
+                    
+                    // ^^^ fix 5.5.2b : of last path /" not running in direct mode 
+                    //dir = [ dir stringByDeletingLastPathComponent ];
+                    
                     NSString *name = [[dir 
                                        stringByReplacingOccurrencesOfString:
                                        [dir stringByDeletingLastPathComponent ]
@@ -206,9 +253,10 @@ int main(int argc, char *argv[]) {
                     if (ipapath == nil) {
                         printf("Failed.\n");
                     } else {
-                        printf("\t%s\n", [ipapath UTF8String]);
+                        printf("iNalyzer done, file saved at:%s\n", [ipapath UTF8String]);
                     }
                 }
+                //bb//
                 else {
                     /*
                      NSString * basePath = [NSString stringWithFormat:@"%@","/var/mobile/Applications/AA6EAC16-56B4-4D50-AA89-EA8BEB15EAFD/pg2.app/" ];
@@ -221,10 +269,10 @@ int main(int argc, char *argv[]) {
                     if (ipapath == nil) {
                         printf("Failed.\n");
                     } else {
-                        printf("\t%s\n", [ipapath UTF8String]);
+                        printf("iNalyzer done, file saved at:%s\n", [ipapath UTF8String]);
                         printf("error: Unrecognized application \"%s\"\n", argv[i]);
                     }*/
-                    printf("error: Unrecognized application \"%s\"\n", argv[i]);
+                    //printf("error: Unrecognized application \"%s\"\n", argv[i]);
                 }
 			}
 			cracked = FALSE;

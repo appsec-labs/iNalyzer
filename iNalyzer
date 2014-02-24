@@ -1,7 +1,1 @@
-#!/usr/bin/cycript 
-
-var t = [new NSTask init]; 
-[t setLaunchPath:@"/bin/sh"]; 
-[t setArguments:[NSArray arrayWithObjects: @"/Applications/iNalyzer5.app/iNalyzer-Deamon.sh", @"&",nil]];
-[t launch];
-[t release];
+/Applications/iNalyzer5.app/iNalyzer-Deamon.sh

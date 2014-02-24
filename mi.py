@@ -3,21 +3,21 @@ from os import curdir, sep
 from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
 
 class SimpleHandler(BaseHTTPRequestHandler):
-
+    
     def Menu(self):
         try:
-              	import subprocess as sub
-            	p = sub.Popen(["sh","/Applications/iNalyzer5.app/Menu.sh"],stdout=sub.PIPE,stderr=sub.PIPE)
-            	output, errors = p.communicate()
-            	self.send_response(200)
-            	self.send_header('Content-type',        'text/html')
-            	self.end_headers()
-            	self.wfile.write(output)
-            	return
+            import subprocess as sub
+            p = sub.Popen(["sh","/Applications/iNalyzer5.app/Menu.sh"],stdout=sub.PIPE,stderr=sub.PIPE)
+            output, errors = p.communicate()
+            self.send_response(200)
+            self.send_header('Content-type',        'text/html')
+            self.end_headers()
+            self.wfile.write(output)
+            return
         except:
-            	return
-            	
-
+            return
+    
+    
     def do_GET(self):
         try:
             print self.path
@@ -51,23 +51,23 @@ class SimpleHandler(BaseHTTPRequestHandler):
             		return
             	z="/var"+output.split("/var")[1].split(".ipa")[0]+".ipa"
             	if (z):
-            			ame=z.split("/")
-            			print ame
-            			name=ame[ame.__len__()-1]
-            			print name
-            			self.send_response(200)
-            			self.send_header('Content-type',        'application/zip')
-            			self.send_header('Content-Disposition', 'attachment; filename="'+name.split(".ipa")[0]+'.zip"')
-            			self.end_headers()
-                        #res=os.system("iTell "+appname+" `cat "+htname_out+"| tr '\n' '@' ` > "+htname+"_tell")
-            			nfile= open(z,'rb')
-            			self.wfile.write(nfile.read())
-            			nfile.close()
-                        #res=os.system("rm "+fullname+" "+fullout)
-                        #return
+                    ame=z.split("/")
+                    print ame
+                    name=ame[ame.__len__()-1]
+                    print name
+                    self.send_response(200)
+                    self.send_header('Content-type',        'application/zip')
+                    self.send_header('Content-Disposition', 'attachment; filename="'+name.split(".ipa")[0]+'.zip"')
+                    self.end_headers()
+                    #res=os.system("iTell "+appname+" `cat "+htname_out+"| tr '\n' '@' ` > "+htname+"_tell")
+                    nfile= open(z.replace('\\ '," "),'rb')
+                    self.wfile.write(nfile.read())
+                    nfile.close()
+                #res=os.system("rm "+fullname+" "+fullout)
+                #return
             	#self.wfile.write("file is:"+z)
             	return
-            	
+            
             if ( self.path == "/listApps" ):
             	import subprocess as sub
             	p = sub.Popen(["sh","/Applications/iNalyzer5.app/listApp.sh"],stdout=sub.PIPE,stderr=sub.PIPE)
@@ -77,7 +77,7 @@ class SimpleHandler(BaseHTTPRequestHandler):
             	self.send_header('Content-type',        'text/html')
             	self.end_headers()
             	return
-            	
+            
             if ( self.path.find("Invoke=") > -1):
                 data=self.path.split("Invoke=")[1].split("&EndInvoke")[0]
                 appname=self.path.split("/")[1]
@@ -106,23 +106,23 @@ class SimpleHandler(BaseHTTPRequestHandler):
                 #res=os.system("cat "+htname+" >"+htname+"_out")
                 #res=os.system("echo "+appname+" >"+htname+"_out")
                 #print ("/usr/bin/cycript -p "+appname+" "+fullname+" = "+fullout)
-                res=os.system("/usr/bin/cycript -p `ps -ef | grep -v grep | grep '"+urllib.unquote(appname)+"' | awk '{print $2;}'` "+fullname+" > "+fullout)
+                res=os.system("/usr/bin/cycript -p `ps -ef | grep -v grep | grep '"+urllib.unquote(appname)+".app' | awk '{print $2;}'` "+fullname+" > "+fullout)
                 if (res == 0):
-                        #res=os.system("iTell "+appname+" `cat "+htname_out+"| tr '\n' '@' ` > "+htname+"_tell")
-                        nfile= open(fullout,'r')
-                        self.wfile.write(cgi.escape(nfile.read()).replace("\n","<br>"))
-                        nfile.close()
-                        res=os.system("rm "+fullname+" "+fullout)
-                        return
+                    #res=os.system("iTell "+appname+" `cat "+htname_out+"| tr '\n' '@' ` > "+htname+"_tell")
+                    nfile= open(fullout,'r')
+                    self.wfile.write(cgi.escape(nfile.read()).replace("\n","<br>"))
+                    nfile.close()
+                    res=os.system("rm "+fullname+" "+fullout)
+                    return
             Menu(self)
             self.send_response(200)
             self.send_header('Content-type',        'text/html')
             self.end_headers()
             self.wfile.write("no input")
         except:
-            return 
+            return
         return
-
+    
     def do_POST(self):
         form = cgi.FieldStorage(  fp=self.rfile, headers=self.headers, environ={'REQUEST_METHOD':'POST', 'CONTENT_TYPE':self.headers['Content-Type'], })
         data=''
@@ -139,9 +139,9 @@ class SimpleHandler(BaseHTTPRequestHandler):
         self.wfile.write("hey, written to"+htname)
         res=os.system("cat "+htname+" >"+htname+"_out")
         if (res == 0):
-                nfile= open(curdir+sep+htname+"_out",'r')
-                self.wfile.write(nfile.read())
-                nfile.close()
+            nfile= open(curdir+sep+htname+"_out",'r')
+            self.wfile.write(nfile.read())
+            nfile.close()
         return
 
 def main():
