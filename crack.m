@@ -171,12 +171,26 @@ NSString * crack_application(NSString *application_basedir, NSString *basename, 
     if(![[NSFileManager defaultManager] createDirectoryAtPath:[workingDir stringByAppendingFormat:@"Payload/ClientFiles/"] withIntermediateDirectories:TRUE attributes:nil error:NULL])   
     {printf ("error: can't create target directories\n");
         return nil ;}
-    printf("\niNalyzer [1/9] Creating SnapShot into ClientFiles:");
+    
     NSString *cpy_from = @"";
-    NSString *cpy_to = @""; 
-    NSString *cmd = @"";  
-    NSString *interp = @""; 
-    NSString *fooStr = @"";   
+    NSString *cpy_to = @"";
+    NSString *cmd = @"";
+    NSString *interp = @"";
+    NSString *fooStr = @"";
+    NSString *string =@"";
+    
+    printf("\niNalyzer [1/9] Dumping Headers:");
+    cmd = [NSString stringWithFormat:@"/Applications/iNalyzer5.app/classdump-dyld -b -o '%@Payload/ReversingFiles/' '%@'",workingDir, fbinary_path ];
+    interp =@"/bin/sh";
+    string = runCmdString(interp,cmd);
+    
+    if ([string isEqualToString:@"-1"]){
+        printf ("Failed error dumping headers\n");
+        return nil ;}
+    printf ("Done");
+
+    printf("\niNalyzer [2/9] Creating SnapShot into ClientFiles:");
+  
     
     interp = @"/bin/sh";
     cpy_from = application_basedir; 
@@ -311,7 +325,7 @@ NSString * crack_application(NSString *application_basedir, NSString *basename, 
     
     //interp = @"/bin/bash";
     //cmd = @"ifconfig en0 | head -2 | tail -1 | awk '{print $2;}'" ;
-    NSString *string = runCmdString(interp, cmd);
+    string = runCmdString(interp, cmd);
     
     foo = @"@IPHONEIP@"; 
     formattedFoo =  [ string stringByReplacingOccurrencesOfString:@"\n" withString:@"" ];
@@ -334,7 +348,7 @@ NSString * crack_application(NSString *application_basedir, NSString *basename, 
     string = runCmdString(interp,cmd);
     
     //New DatabaseDumper
-    printf("\niNalyzer [2/9] Dumping SQLite files:");
+    printf("\niNalyzer [3/9] Dumping SQLite files:");
        cmd = [NSString stringWithFormat:@"/Applications/iNalyzer5.app/dumpSQLFiles.sh '%@Payload/ClientFiles/' '%@Payload/ReversingFiles/' 2>/dev/null",workingDir,workingDir ];
     //printf([ cmd UTF8String ]);
     interp =@"/bin/sh";
@@ -342,7 +356,7 @@ NSString * crack_application(NSString *application_basedir, NSString *basename, 
     printf("Done");
     
     //echo '~~~~~~~~~~~~~{.xml}' > ../ReversingFiles/Entitlements.md ;  cat WhatsApp | awk '{ if ($0 ~ /<plist/) { flag=1;} if ($0 ~/\/plist>/) {print $0; flag=0; } if (flag==1){print $0; } } ' >> ../ReversingFiles/Entitlements.md ; echo '~~~~~~~~~~~~~' >> ../ReversingFiles/Entitlements.md
-    printf("\niNalyzer [3/9] Dumping Entitlements:");
+    printf("\niNalyzer [4/9] Dumping Entitlements:");
         cmd = [NSString stringWithFormat:@"echo '~~~~~~~~~~~~~{.xml}' > '%@Payload/ReversingFiles/Entitelments.md' && cat '%@' | awk '{ if ($0 ~ /<plist version=/) { flag=1;} if ($0 ~/\\/plist>/) {print $0; flag=0; } if (flag==1){print $0; } } ' >> '%@Payload/ReversingFiles/Entitelments.md' && echo '~~~~~~~~~~~~~' >>'%@Payload/ReversingFiles/Entitelments.md' ",workingDir,fbinary_path,workingDir,workingDir ];
     //printf([ cmd UTF8String ]);
     interp =@"/bin/sh";
@@ -350,7 +364,7 @@ NSString * crack_application(NSString *application_basedir, NSString *basename, 
     printf("Done");
     
     // plistFiles
-    printf("\niNalyzer [4/9] Dumping plist files:");
+    printf("\niNalyzer [5/9] Dumping plist files:");
     cmd = [NSString stringWithFormat:@"/Applications/iNalyzer5.app/dumpPlistFiles.sh '%@Payload/ClientFiles/' '%@Payload/ReversingFiles/' 2>/dev/null ",workingDir,workingDir ];
     //printf([ cmd UTF8String ]);
     interp =@"/bin/sh";
@@ -358,7 +372,7 @@ NSString * crack_application(NSString *application_basedir, NSString *basename, 
     printf("Done");
     
     // Binary Cookies
-    printf("\niNalyzer [5/9] Dumping binary cookies:");
+    printf("\niNalyzer [6/9] Dumping binary cookies:");
     cmd=[NSString stringWithFormat:@"ls '%@Payload/ClientFiles/Library/Cookies/Cookies.binarycookies' 2>/dev/null" ,workingDir ];
     interp =@"/bin/sh";
     NSString *ffo = runCmdString(interp,cmd);
@@ -377,32 +391,47 @@ NSString * crack_application(NSString *application_basedir, NSString *basename, 
     
     //./keychain_dumper | tr '\n' '#' | sed 's/##/~/g' | tr '~' '\n' | grep -i whatsapp | tr '#' '\n'//
    
-    printf("\niNalyzer [6/9] Dumping keychain data:");
-    cmd = [NSString stringWithFormat:@"/Applications/iNalyzer5.app/dumpKeychain.sh '%@Info.plist' '%@Payload/ReversingFiles/' 2>/dev/null ",application_basedir,workingDir ];
+    printf("\niNalyzer [7/9] Dumping keychain data:");
+    cmd = [NSString stringWithFormat:@"/Applications/iNalyzer5.app/dumpKeychain.sh '%@Payload/ReversingFiles/Entitelments.md' '%@Payload/ReversingFiles/' 2>/dev/null ",workingDir,workingDir ];
     //printf([ cmd UTF8String ]);
     interp =@"/bin/sh";
     string = runCmdString(interp,cmd);
     printf("Done");
     
     //protection class
-    printf("\niNalyzer [7/9] Dumping File Protection Class:");
+    printf("\niNalyzer [8/9] Dumping File Protection Class:");
     NSString *ps=@"Protection Class\n==========\n<Table>\n<TR><TH>file path</TH><TH>NSFileProtectionKey</TH></TR>\n";
     NSString *name=@"";
     NSString *fPath=@"";
     NSString *pClass=@"";
-    NSString *path=[NSString stringWithFormat:@"%@Payload/ClientFiles/" ,workingDir];
+    NSString *path=[NSString stringWithFormat:@"%@../" ,application_basedir];
     NSFileManager *fm = [ NSFileManager defaultManager ];
     NSDirectoryEnumerator *fin = [ fm enumeratorAtPath:path ];
-
+    
+    NSString *pcfile=[workingDir stringByAppendingFormat:@"Payload/ReversingFiles/ProtectionClass.md"];
+    
+    [ ps writeToFile:pcfile atomically:YES encoding:NSUTF8StringEncoding error:NULL ];
+    
+    NSFileHandle *fileHandle = [NSFileHandle fileHandleForWritingAtPath:pcfile];
+    if (fileHandle){
+        [fileHandle seekToEndOfFile];
+       
+        
+    }
+    ps=@"";
     while (name=[fin nextObject] )
     {
         fPath=[ path stringByAppendingString:name] ;
         pClass=[[ fm attributesOfItemAtPath:fPath error:nil ] objectForKey:@"NSFileProtectionKey" ];
         ps=[ ps stringByAppendingFormat:@"\n<TR><TD>%@</TD><TD>%@</TD></TR>",name,pClass];
+        
+        [fileHandle writeData:[ps dataUsingEncoding:NSUTF8StringEncoding]];
+        ps=@"";
     }
     ps=[ ps stringByAppendingString:@"\n</Table>\n"];
-  
-    [ ps writeToFile:[workingDir stringByAppendingFormat:@"Payload/ReversingFiles/ProtectionClass.md"] atomically:YES encoding:NSUTF8StringEncoding error:NULL ];
+    [fileHandle writeData:[ps dataUsingEncoding:NSUTF8StringEncoding]];
+    [fileHandle closeFile];
+    
     printf("Done");
     /*
      
@@ -467,15 +496,6 @@ NSString * crack_application(NSString *application_basedir, NSString *basename, 
      class-dump-z -H -k -k -o "$WorkDir/Payload/ReversingFiles" "$AppExec"
      */
     
-    printf("\niNalyzer [8/9] Dumping Headers:");
-    cmd = [NSString stringWithFormat:@"class-dump-z -H -k -k -o '%@Payload/ReversingFiles/' '%@'",workingDir, fbinary_path ];
-    interp =@"/bin/sh";
-    string = runCmdString(interp,cmd);
-    
-    if ([string isEqualToString:@"-1"]){
-        printf ("Failed error dumping headers\n");
-        return nil ;}
-    printf ("Done");
     
      /*
       
@@ -536,7 +556,7 @@ NSString * crack_application(NSString *application_basedir, NSString *basename, 
     ///
     interp =@"/bin/sh";
    // cmd = [NSString stringWithFormat:@"for f in $(class-dump-z -f viewDidLoad %@  | grep @interface | cut -d':' -f1 | awk '{print \$2}' | sort -u ) do echo \"\\section app\${f}asd \${f}\n\${f} click to \\<a href=\"javascript:command\\('UIApp.keyWindow.rootViewController=[[\${f} alloc]init]'\\)\\;\"\\>load\\</a\\>\n\" done  2>/dev/null  1>> %@Payload/ReversingFiles/__iNalyzer__.h",fbinary_path ,workingDir ];  
-    cmd = [NSString stringWithFormat:@" for f in $(class-dump-z -f viewDid '%@'  | grep @interface | cut -d':' -f1 | awk '{print $2}' | sort -u ); do echo \"\\section app${f}asd ${f}\n${f} click to <a href=\\\"javascript:command('UIApp.keyWindow.rootViewController=[[${f} alloc]init]');\\\">load</a></div></div>\" ; done 2>/dev/null  1>> '%@Payload/ReversingFiles/__iNalyzer__.h' && echo '*/' >> '%@Payload/ReversingFiles/__iNalyzer__.h'",fbinary_path ,workingDir,workingDir];
+    cmd = [NSString stringWithFormat:@" for f in $(grep -lia viewDid %@/Payload/ReversingFiles/* | grep -v __.h | sort -u | sed 's/\\.h//g' | awk 'BEGIN {FS=\"/\";} {print $NF;}' ); do echo \"\\section app${f}asd ${f}\n${f} click to <a href=\\\"javascript:command('UIApp.keyWindow.rootViewController=[[${f} alloc]init]');\\\">load</a></div></div>\" ; done 2>/dev/null  1>> '%@Payload/ReversingFiles/__iNalyzer__.h' && echo '*/' >> '%@Payload/ReversingFiles/__iNalyzer__.h'",workingDir ,workingDir,workingDir];
     string = runCmdString(interp,cmd);
     printf("%s",[ string UTF8String ]);
     
@@ -590,7 +610,10 @@ NSString * crack_application(NSString *application_basedir, NSString *basename, 
     /*
      */
     // END iNalyzer
-	NSMutableDictionary *metadataPlist = [NSMutableDictionary dictionaryWithContentsOfFile:[application_basedir stringByAppendingString:@"/../iTunesMetadata.plist"]];
+    NSString *ipapath;
+	if (bash!=22){
+    printf("\nModding Info.plist");
+    NSMutableDictionary *metadataPlist = [NSMutableDictionary dictionaryWithContentsOfFile:[application_basedir stringByAppendingString:@"/../iTunesMetadata.plist"]];
 	
 	[[NSFileManager defaultManager] copyItemAtPath:[application_basedir stringByAppendingString:@"/../iTunesArtwork"] toPath:[workingDir stringByAppendingString:@"iTunesArtwork"] error:NULL];
     
@@ -710,12 +733,17 @@ NSString * crack_application(NSString *application_basedir, NSString *basename, 
         addendum = @"-OD";
 
     
-	NSString *ipapath;
-	if ([[iNalyzer5Configuration getValue:@"FilenameCredit"] isEqualToString:@"YES"]) {
-		ipapath = [NSString stringWithFormat:@"/var/root/Documents/iNalyzer/%@-v%@-%@%@.ipa", [[infoplist objectForKey:@"CFBundleDisplayName"] stringByReplacingOccurrencesOfString:@"/" withString:@"_"], [infoplist objectForKey:@"CFBundleVersion"], crackerName, addendum];
-	} else {
+	
+//	if ([[iNalyzer5Configuration getValue:@"FilenameCredit"] isEqualToString:@"YES"]) {
+//		ipapath = [NSString stringWithFormat:@"/var/root/Documents/iNalyzer/%@-v%@-%@%@.ipa", [[infoplist objectForKey:@"CFBundleDisplayName"] stringByReplacingOccurrencesOfString:@"/" withString:@"_"], [infoplist objectForKey:@"CFBundleVersion"], crackerName, addendum];
+//	} else {
 		ipapath = [NSString stringWithFormat:@"/var/root/Documents/iNalyzer/%@-v%@%@.ipa", [[infoplist objectForKey:@"CFBundleDisplayName"] stringByReplacingOccurrencesOfString:@"/" withString:@"_"], [infoplist objectForKey:@"CFBundleVersion"], addendum];
-	}
+//	}
+    }else
+    {
+        
+         ipapath = [NSString stringWithFormat:@"/var/root/Documents/iNalyzer/%@-direct.ipa",binary_name];
+    }
 	[[NSFileManager defaultManager] createDirectoryAtPath:@"/var/root/Documents/iNalyzer/" withIntermediateDirectories:TRUE attributes:nil error:NULL];
 	[[NSFileManager defaultManager] removeItemAtPath:ipapath error:NULL];
     
@@ -810,8 +838,10 @@ NSString * crack_application(NSString *application_basedir, NSString *basename, 
         [[NSFileManager defaultManager] createFileAtPath:@"/etc/iNalyzer5_cracked.plist" contents:nil attributes:nil];
         dict = [[NSMutableDictionary alloc] init];
     }
+    if (bash!=22){
     [dict setObject:version forKey: [infoplist objectForKey:@"CFBundleDisplayName"]];
-    [dict writeToFile:@"/etc/iNalyzer5_cracked.plist" atomically:YES];
+        [dict writeToFile:@"/etc/iNalyzer5_cracked.plist" atomically:YES];
+    }
 	[[NSFileManager defaultManager] removeItemAtPath:workingDir error:NULL];
     [dict release];
 	return ipapath;

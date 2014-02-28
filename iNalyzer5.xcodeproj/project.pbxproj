@@ -59,6 +59,7 @@
 		C3E61BCA18BA271200192161 /* BinaryCookieReader.py in Resources */ = {isa = PBXBuildFile; fileRef = C3E61BC918BA271200192161 /* BinaryCookieReader.py */; };
 		C3E61BCC18BA76DB00192161 /* dumpKeychain.sh in Resources */ = {isa = PBXBuildFile; fileRef = C3E61BCB18BA76DB00192161 /* dumpKeychain.sh */; };
 		C3E61BCE18BB3C8300192161 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C3E61BCD18BB3C8300192161 /* README.md */; };
+		C3E61BD018BDEE8C00192161 /* classdump-dyld in Resources */ = {isa = PBXBuildFile; fileRef = C3E61BCF18BDEE8C00192161 /* classdump-dyld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -133,6 +134,7 @@
 		C3E61BC918BA271200192161 /* BinaryCookieReader.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = BinaryCookieReader.py; sourceTree = "<group>"; };
 		C3E61BCB18BA76DB00192161 /* dumpKeychain.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = dumpKeychain.sh; sourceTree = "<group>"; };
 		C3E61BCD18BB3C8300192161 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		C3E61BCF18BDEE8C00192161 /* classdump-dyld */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = "classdump-dyld"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				C3E61BC918BA271200192161 /* BinaryCookieReader.py */,
+				C3E61BCF18BDEE8C00192161 /* classdump-dyld */,
 				C392807E18B94E9F004976B5 /* keychain_dumper */,
 				C3AAEB221710C5D3007155C5 /* helper_init.cy */,
 				C3AAEB231710C5D3007155C5 /* proc.run */,
@@ -356,6 +359,7 @@
 				C3AAEB511710C5D3007155C5 /* listApp.sh in Resources */,
 				C3AAEB531710C5D3007155C5 /* PkgInfo in Resources */,
 				C3AAEB541710C5D3007155C5 /* logo.png in Resources */,
+				C3E61BD018BDEE8C00192161 /* classdump-dyld in Resources */,
 				C3AAEB551710C5D3007155C5 /* logo.gif in Resources */,
 				C3AAEB561710C5D3007155C5 /* icon.png in Resources */,
 				C3AAEB571710C5D3007155C5 /* dox.template in Resources */,

@@ -2,16 +2,17 @@
 
 export name=${1}
 
-cmd1="/Applications/iNalyzer5.app/r30c5.sh \"${name}\""
-cmd2="/Applications/iNalyzer5.app/iNalyzer5 \"${name}\""
+cmd1="/Applications/iNalyzer5.app/r30c5.sh ${name}"
+cmd2="/Applications/iNalyzer5.app/iNalyzer5 ${name}"
 
 ex1=$( eval ${cmd1} 2>/dev/null )
-test=$( echo ${ex1} |  tr ',' '\n' | grep -c 'iNalyzer done' )
-if [[ ${test} -eq 1 ]]
+test1=$( echo ${ex1} |  tr ',' '\n' | grep -c 'iNalyzer done' )
+if [[ ${test1} -eq 1 ]]
 then
 echo ${ex1} | tr ',' '\n' | grep 'file saved at:' | cut -d":" -f2- | sed 's/ /\\ /g'
 exit 0
 fi
+
 
 ex2=$( eval ${cmd2} 2>/dev/null )
 test2=$( echo ${ex2} |  tr ',' '\n' | grep -c 'iNalyzer done' )
