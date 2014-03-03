@@ -178,15 +178,29 @@ NSString * crack_application(NSString *application_basedir, NSString *basename, 
     NSString *interp = @"";
     NSString *fooStr = @"";
     NSString *string =@"";
-    
+    BOOL *cDmpFailed=false;
     printf("\niNalyzer [1/9] Dumping Headers:");
     cmd = [NSString stringWithFormat:@"/Applications/iNalyzer5.app/classdump-dyld -b -o '%@Payload/ReversingFiles/' '%@'",workingDir, fbinary_path ];
     interp =@"/bin/sh";
     string = runCmdString(interp,cmd);
     
     if ([string isEqualToString:@"-1"]){
-        printf ("Failed error dumping headers\n");
-        return nil ;}
+        //printf ("Failed error dumping headers\n");
+        //return nil ;
+        cDmpFailed=true;
+    }
+    
+    if(cDmpFailed){
+        cmd = [NSString stringWithFormat:@"class-dump-z -k -k -H -o '%@Payload/ReversingFiles/' '%@'",workingDir, fbinary_path ];
+        interp =@"/bin/sh";
+        string = runCmdString(interp,cmd);
+        
+        if ([string isEqualToString:@"-1"]){
+            printf ("Failed error dumping headers\n");
+            return nil ;
+            //cDmpFailed=true;
+        }
+    }
     printf ("Done");
 
     printf("\niNalyzer [2/9] Creating SnapShot into ClientFiles:");

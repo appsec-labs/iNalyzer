@@ -383,7 +383,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "";
+			shellScript = "~/Theos/bin/ldid -SiNalyzer5.entitlements \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}\"";
 		};
 		41E0DE311237440B0068268F /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
