@@ -1949,7 +1949,7 @@ echo "$OneApp" >> /tmp/lsd.tmp
 fi
 done
 fi
-rm -rf tmp.1
+#rm -rf /tmp/lsdc.tmp
 
 # Loop through the different flags
 LoopExit="NO"
