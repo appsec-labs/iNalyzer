@@ -1932,13 +1932,16 @@ rm -f /tmp/lsd.tmp
 #do
 #	echo "$(dirname "$OneApp")" >> /tmp/lsd.tmp
 #done
-if [ -d /var/mobile/Containers/Bundle/Application/ ]; then
-	ls -d /var/mobile/Containers/bundle/Applications/*/*.app 2> /dev/null | sort -f -t \/ -k 6 | while read OneApp
-else
-	ls -d /var/mobile/Applications/*/*.app 2> /dev/null | sort -f -t \/ -k 6 | while read OneApp
-fi
+
 # Why is that faster than previous code ???
-ls -d /var/mobile/Applications/*/*.app 2> /dev/null | sort -f -t \/ -k 6 | while read OneApp
+
+if [ -d /var/mobile/Containers/Bundle/Application/ ]; then
+ls -d /var/mobile/Containers/Bundle/Application/*/*.app > /tmp/lsdc.tmp
+
+else
+ls -d /var/mobile/Applsadications/*/*.app > /tmp/lsdc.tmp
+fi
+cat /tmp/lsdc.tmp | sort -f -t \/ -k 6 | while read OneApp
 ## */
 do
 if [ -d "$OneApp/SC_Info" ]; then
@@ -1946,6 +1949,7 @@ echo "$OneApp" >> /tmp/lsd.tmp
 fi
 done
 fi
+rm -rf tmp.1
 
 # Loop through the different flags
 LoopExit="NO"
