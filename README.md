@@ -1,5 +1,8 @@
-# iNalyzer5 Security assesment framework for iOS application
+# iNalyzer - iOS Penetration Testing Framework
 by Chilik Tamir @_coreDump
+
+https://appsec-labs.com/inalyzer/
+
 
 Introduction
 ------
@@ -33,6 +36,16 @@ When iNalyzer5 is running, open your browser to your iDevice ip:5544 eg http://i
 
 
 If you find any issue after installing this tool, just uninstall it in Cydia.
+
+
+Manual
+------
+Download User-guide from [here](https://appsec-labs.com/tools/iNalyzer-User-Guide.pdf)
+
+iOS Support
+------
+iNalyzer5 officially supports iOS 8.4
+
 
 
 License
