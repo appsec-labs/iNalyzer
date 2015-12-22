@@ -8,7 +8,7 @@
 #
 # The truth is I never left you. I kept my promise.
 #
-# Je serai là, toujours pour toi, car je resterai ta meilleure amie.
+# Je serai lÃ , toujours pour toi, car je resterai ta meilleure amie.
 #
 #
 # Home: https://twitter.com/iRastignac
@@ -1932,7 +1932,11 @@ rm -f /tmp/lsd.tmp
 #do
 #	echo "$(dirname "$OneApp")" >> /tmp/lsd.tmp
 #done
-
+if [ -d /var/mobile/Containers/Bundle/Application/ ]; then
+	ls -d /var/mobile/Containers/bundle/Applications/*/*.app 2> /dev/null | sort -f -t \/ -k 6 | while read OneApp
+else
+	ls -d /var/mobile/Applications/*/*.app 2> /dev/null | sort -f -t \/ -k 6 | while read OneApp
+fi
 # Why is that faster than previous code ???
 ls -d /var/mobile/Applications/*/*.app 2> /dev/null | sort -f -t \/ -k 6 | while read OneApp
 ## */
