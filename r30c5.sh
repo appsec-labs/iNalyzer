@@ -1927,7 +1927,7 @@ if [ ! $RCinaGUI = "YES" ]; then
 rm -f /tmp/lsd.tmp
 
 # Why is that slower than next code ???
-#ls -d /var/mobile/Applications/*/*.app/SC_Info 2> /dev/null | sort -f -t \/ -k 6 | while read OneApp
+#ls -d /var/mobile/Applications/*/*.app/SC_Info 2> /dev/null | sort -f -t \/ -k 8 | while read OneApp
 ## */
 #do
 #	echo "$(dirname "$OneApp")" >> /tmp/lsd.tmp
@@ -1937,11 +1937,10 @@ rm -f /tmp/lsd.tmp
 
 if [ -d /var/mobile/Containers/Bundle/Application/ ]; then
 ls -d /var/mobile/Containers/Bundle/Application/*/*.app > /tmp/lsdc.tmp
-
 else
 ls -d /var/mobile/Applsadications/*/*.app > /tmp/lsdc.tmp
 fi
-cat /tmp/lsdc.tmp | sort -f -t \/ -k 6 | while read OneApp
+cat /tmp/lsdc.tmp | sort -f -t \/ -k 8 | while read OneApp
 ## */
 do
 if [ -d "$OneApp/SC_Info" ]; then
@@ -1949,7 +1948,7 @@ echo "$OneApp" >> /tmp/lsd.tmp
 fi
 done
 fi
-#rm -rf /tmp/lsdc.tmp
+#rm -rf lsdc.tmp
 
 # Loop through the different flags
 LoopExit="NO"
@@ -2030,9 +2029,9 @@ echo
 echo "AN=AppName CN=CrackerName CFN=CreditFileName"
 echo
 if [ -e /tmp/lsd.tmp ]; then
-cat /tmp/lsd.tmp | cut -f 6 -d '/' | sed "s:\\.app:,:" | tr "\n" " "
+cat /tmp/lsd.tmp | cut -f 8 -d '/' | sed "s:\\.app:,:" | tr "\n" " "
 echo -e "\010\010."
-rm -f /tmp/lsd.tmp
+#rm -f /tmp/lsd.tmp
 fi
 exit 1
 else
