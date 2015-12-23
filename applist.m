@@ -21,7 +21,12 @@
 #import "applist.h"
 
 NSArray * get_application_list(BOOL sort, BOOL updates) {
-	NSString *basePath = @"/var/mobile/Applications/";
+	NSString *basePath = @"/var/mobile/Containers/Bundle/Application";
+	BOOL isDir = NO;
+    	BOOL isFile = [[NSFileManager defaultManager] fileExistsAtPath:basePath isDirectory:&isDir];
+    	if(isDir != YES) {
+		basePath = @"/var/mobile/Applications/";
+	}
 	NSMutableArray *returnArray = [[NSMutableArray alloc] init];
 	NSArray *apps = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:basePath error:NULL];
 	
