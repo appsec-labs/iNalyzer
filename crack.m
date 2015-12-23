@@ -231,10 +231,12 @@ NSString * crack_application(NSString *application_basedir, NSString *basename, 
      else
     {
         if ([application_basedir hasPrefix:@"/tmp/"]){
-            if(isDir != NO)
+            if(isDir != NO){
             	cmd = [NSString stringWithFormat:@"echo \"$( find /var/mobile/Containers/Bundle/Application/ -type d -name '*.app' | grep -i %@  | tr '\n' '#')\"",basename];
-            else
+            } 	
+            else {
             	cmd = [NSString stringWithFormat:@"echo \"$( find /var/mobile/Applications/ -type d -name '*.app' | grep -i %@  | tr '\n' '#')\"",basename];
+            }
             NSString *asd =runCmdString(interp,cmd);
             
             //printf ("\nidentifiyed home dir at %s#", [asd  UTF8String]);
