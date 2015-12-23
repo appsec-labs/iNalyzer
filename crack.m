@@ -212,10 +212,8 @@ NSString * crack_application(NSString *application_basedir, NSString *basename, 
     NSString *pathToFile = @"/var/mobile/Containers/Bundle/Application";
     BOOL isDir = NO;
     BOOL isFile = [[NSFileManager defaultManager] fileExistsAtPath:pathToFile isDirectory:&isDir];
-    if(isFile && isDir){
-    }
-    else {
-	   pathToFile = @"/var/mobile/Applications";
+    if(isDir != YES){
+    	pathToFile = @"/var/mobile/Applications";
     }
     if ([application_basedir hasPrefix:pathToFile]){
     
@@ -233,7 +231,7 @@ NSString * crack_application(NSString *application_basedir, NSString *basename, 
      else
     {
         if ([application_basedir hasPrefix:@"/tmp/"]){
-            if(isDir)
+            if(isDir != NO)
             	cmd = [NSString stringWithFormat:@"echo \"$( find /var/mobile/Containers/Bundle/Application/ -type d -name '*.app' | grep -i %@  | tr '\n' '#')\"",basename];
             else
             	cmd = [NSString stringWithFormat:@"echo \"$( find /var/mobile/Applications/ -type d -name '*.app' | grep -i %@  | tr '\n' '#')\"",basename];
