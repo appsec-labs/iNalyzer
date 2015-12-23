@@ -1948,7 +1948,7 @@ echo "$OneApp" >> /tmp/lsd.tmp
 fi
 done
 fi
-#rm -rf lsdc.tmp
+rm -rf lsdc.tmp
 
 # Loop through the different flags
 LoopExit="NO"
@@ -2031,7 +2031,7 @@ echo
 if [ -e /tmp/lsd.tmp ]; then
 cat /tmp/lsd.tmp | cut -f 8 -d '/' | sed "s:\\.app:,:" | tr "\n" " "
 echo -e "\010\010."
-#rm -f /tmp/lsd.tmp
+rm -f /tmp/lsd.tmp
 fi
 exit 1
 else
