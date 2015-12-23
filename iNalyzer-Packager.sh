@@ -1734,26 +1734,32 @@ fi
 
 AltDump="NO"
 
+if [ -d /var/mobile/Containers/Bundle/Application/ ]; then
+	ls -d /var/mobile/Containers/Bundle/Application/*/*.app > /tmp/lsdc.tmp
+else
+	ls -d /var/mobile/Applsadications/*/*.app > /tmp/lsdc.tmp
+fi
+
 if [ ! $PCMinaGUI = "YES" ]; then
 	# Get and store the encrypted apps list
 	rm -f /tmp/lsd.tmp
 
 	# Why is that slower than next code ???
-	#ls -d /var/mobile/Applications/*/*.app/SC_Info 2> /dev/null | sort -f -t \/ -k 6 | while read OneApp
+	#ls -d /var/mobile/Applications/*/*.app/SC_Info 2> /dev/null | sort -f -t \/ -k 8 | while read OneApp
 	## */
 	#do
 	#	echo "$(dirname "$OneApp")" >> /tmp/lsd.tmp
 	#done
 
 	# Why is that faster than previous code ???
-	ls -d /var/mobile/Applications/*/*.app 2> /dev/null | sort -f -t \/ -k 6 | while read OneApp
+	cat /tmp/lsdc.tmp | sort -f -t \/ -k 8 | while read OneApp
 	## */
 	do
 		if [ -d "$OneApp/SC_Info" ]; then
 			echo "$OneApp" >> /tmp/lsd.tmp
 		fi
 	done
-
+	rm -rf /tmp/lsdc.tmp
 	# Secret "alternative dumping" flag
 	if [ "$1" = "-a" ]; then
 		shift
@@ -1791,7 +1797,7 @@ if [ ! $PCMinaGUI = "YES" ]; then
 		echo "AN=AppName CN=CrackerName CFN=CreditFileName"
 		echo
 		if [ -e /tmp/lsd.tmp ]; then
-			cat /tmp/lsd.tmp | cut -f 6 -d '/' | sed "s:\\.app:,:" | tr "\n" " "
+			cat /tmp/lsd.tmp | cut -f 8 -d '/' | sed "s:\\.app:,:" | tr "\n" " "
 			echo -e "\010\010."
 			rm -f /tmp/lsd.tmp
 		fi

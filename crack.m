@@ -209,8 +209,13 @@ NSString * crack_application(NSString *application_basedir, NSString *basename, 
     interp = @"/bin/sh";
     cpy_from = application_basedir; 
     cpy_to = [workingDir stringByAppendingFormat:@"Payload/ClientFiles/"] ;
-    
-    if ([application_basedir hasPrefix:@"/var/mobile/Applications/"]){
+    NSString *pathToFile = @"/var/mobile/Containers/Bundle/Application";
+    BOOL isDir = NO;
+    BOOL isFile = [[NSFileManager defaultManager] fileExistsAtPath:pathToFile isDirectory:&isDir];
+    if(isDir != YES){
+    	pathToFile = @"/var/mobile/Applications";
+    }
+    if ([application_basedir hasPrefix:pathToFile]){
     
         cmd = [NSString stringWithFormat:@"cp -r '%@../' '%@'",cpy_from,cpy_to];
 
@@ -226,7 +231,12 @@ NSString * crack_application(NSString *application_basedir, NSString *basename, 
      else
     {
         if ([application_basedir hasPrefix:@"/tmp/"]){
-            cmd = [NSString stringWithFormat:@"echo \"$( find /var/mobile/Applications/ -type d -name '*.app' | grep -i %@  | tr '\n' '#')\"",basename];
+            if(isDir != NO){
+            	cmd = [NSString stringWithFormat:@"echo \"$( find /var/mobile/Containers/Bundle/Application/ -type d -name '*.app' | grep -i %@  | tr '\n' '#')\"",basename];
+            } 	
+            else {
+            	cmd = [NSString stringWithFormat:@"echo \"$( find /var/mobile/Applications/ -type d -name '*.app' | grep -i %@  | tr '\n' '#')\"",basename];
+            }
             NSString *asd =runCmdString(interp,cmd);
             
             //printf ("\nidentifiyed home dir at %s#", [asd  UTF8String]);
