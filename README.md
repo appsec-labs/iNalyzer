@@ -1,5 +1,5 @@
 # Important note
-We do not maintain this repository, this is a very old version and we've rewrite the whole tool from zero. You can get the latest version from our cydia repository:
+We do not longer maintain this repository, this is a very old version and we've rewrite the whole tool from zero. You can get the latest version from our cydia repository:
 https://appsec-labs.com/cydia/
 The iNalyzer agent communicates with a dedicated dashboard in our AppUse VM:
 https://appsec-labs.com/appuse/
